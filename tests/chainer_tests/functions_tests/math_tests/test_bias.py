@@ -45,7 +45,8 @@ class TestBias(unittest.TestCase):
 
     @condition.retry(3)
     def test_backward_cpu(self):
-        self.check_backward(self.x1, self.x2, self.axis, self.gy)
+        self.check_backward(self.x1, self.x2, self.axis, self.gy,
+                            atol=1e-3, rtol=1e-4)
 
     @attr.gpu
     @condition.retry(3)
